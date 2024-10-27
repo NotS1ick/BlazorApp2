@@ -25,6 +25,9 @@ jobs:
     # Add this step before the deployment
     - name: Change base-tag in index.html
       run: sed -i 's/<base href="\/" \/>/<base href="\/BlazorApp2\/" \/>/g' release/wwwroot/index.html
+
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
     
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
